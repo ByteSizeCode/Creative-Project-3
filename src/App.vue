@@ -3,6 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <br>
+      <router-link to="/Directions">Directions</router-link>
     </div>
     <router-view/>
   </div>
@@ -14,7 +16,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -28,5 +29,13 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+div {
+  background-color: black;
+  color: black;
+}
+
+p, h, h7 {
+  color: white;
 }
 </style>

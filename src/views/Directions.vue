@@ -1,8 +1,9 @@
 <template>
   <div class="about">
-    <h3>Welcome to the Global Store </h3>
+    <h3>Find The Nearest Global Store </h3>
     <br>
-    <h1>We aim to be your one stop shop for all things books. Originally founded in 1832 as a small book store in the country, we now have over 536 retail chains worldwide. See some of our books of the week- available in all stores at a bargain price!</h1>
+    <h1>It appears the nearest store is in Houston, Texas</h1>
+    <img src="/map.png">
   </div>
 </template>
 
@@ -22,11 +23,11 @@
 
     font-family:Khula;
     font-size:1.2em;
-    /*text-align:center;*/
-    padding-left:50px;
-    padding-right:50px;
+
+    padding-left:-300px;
+    padding-right:-300px;
     display:block;
-    /*position:absolute;*/
+
     color:white;
 
   }
@@ -62,8 +63,13 @@
     color:white;
   }
   .about h1 {
-    padding-left:100px;
-    padding-right:100px;
+
+    padding-left:-300px;
+    padding-right:-300px;
+  }
+  img {
+    height: 250px;
+    width: 450px;
   }
 }
 
@@ -89,10 +95,16 @@
     color:white;
   }
   .about h1 {
-
-    padding-left:300px;
-    padding-right:300px;
+    padding-left:-300px;
+    padding-right:-300px;
+  }
+  img {
+    height: 290px;
+    width: 740px;
   }
 }
 
+p, h1, h7 {
+  color: white;
+}
 </style>
