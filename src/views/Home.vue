@@ -12,9 +12,14 @@ export default {
   components: {
     ProductList
   },
+  data() {
+    return {
+      searchText: '',
+    }
+  },
   computed: {
     products() {
-      return this.$root.$data.products.filter(product => product.bookName.toLowerCase());
+      return this.$root.$data.products.filter(product => product.bookName.toLowerCase().search(this.searchText.toLowerCase()) >= 0);
     }
   },
 }

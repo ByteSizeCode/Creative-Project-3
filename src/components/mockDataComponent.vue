@@ -1,18 +1,17 @@
 <template>
   <div class="wrapper">
     <div class="products">
-      <div class="product" v-for="product in products" :key="product.id">
+      <div class="product" v-for="(product, index) in products" :key="product.id">
 
 <!--        Stagger every other book-->
 <!--        <li v-for="index in (product.id % 2)" :key="index">-->
 <!--          <br><br>-->
 <!--        </li>-->
 
-<!--        <span class="circle"></span>-->
-
         <div class="info">
           <h1>{{ product.bookName }}</h1>
           <p> By {{ product.author }}</p>
+          <button @click="deleteEvent(index)">Remove</button>
         </div>
         <div class="image">
           <img :src="'/books/'+product.image">
@@ -20,12 +19,28 @@
         <div class="price">
           <h2>{{product.price}}</h2>
         </div>
+
+
+        <button @click="showEditField = !showEditField">Edit</button>
+        <div v-if="showEditField === true">
+          <p>Title</p> <textarea v-model="product.bookName">
+            </textarea>
+          <p>Author</p> <textarea v-model="product.author">
+            </textarea>
+          <p>Price</p> <textarea v-model="product.price">
+            </textarea>
+          <p>Description</p> <textarea v-model="product.description">
+            </textarea>
+        </div>
+
         <p>Description:</p>
         <div class="price">
-          <h7>{{product.description}}</h7>
+          <h6>{{product.description}}</h6>
         </div>
         <span class="line"></span>
       </div>
+
+
 
     </div>
   </div>
@@ -34,10 +49,28 @@
 <script>
 export default {
   name: 'ProductList',
+
+  data() {
+    return {
+      showEditField: false,
+    }
+  },
   props: {
     products: Array
   },
   methods: {
+    deleteEvent: function(key) {
+      // this.$delete(this.products, 1)
+      let copyArr = this.products
+      this.products = []
+      this.$delete(copyArr, key);
+      this.products = copyArr
+
+      // this.products.splice(this.products.indexOf(key),1);
+      // // this.$delete(this.products, key);
+      // console.log(key)
+      // this.products = []
+    }
   }
 }
 </script>
